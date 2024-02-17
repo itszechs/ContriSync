@@ -1,5 +1,6 @@
 plugins {
     kotlin("jvm") version "1.9.22"
+    id("com.apollographql.apollo3") version "3.8.2"
     id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
@@ -11,6 +12,8 @@ repositories {
 }
 
 dependencies {
+    implementation("com.apollographql.apollo3:apollo-runtime:3.8.2")
+
     testImplementation("org.jetbrains.kotlin:kotlin-test")
 }
 
@@ -25,5 +28,11 @@ kotlin {
 tasks.withType<Jar> {
     manifest {
         attributes["Main-Class"] = "zechs.contri.sync.MainKt"
+    }
+}
+
+apollo {
+    service("service") {
+        packageName.set("zechs.contri.sync")
     }
 }
