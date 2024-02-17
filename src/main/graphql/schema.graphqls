@@ -1,0 +1,31 @@
+type Query {
+    user(login: String!): User
+}
+
+type User {
+    contributionsCollection: ContributionsCollection
+}
+
+type ContributionsCollection {
+    contributionCalendar: ContributionCalendar
+}
+
+type ContributionCalendar {
+    totalContributions: Int!
+    weeks: [ContributionCalendarWeek]
+}
+
+type ContributionCalendarWeek {
+    contributionDays: [ContributionCalendarDay]
+}
+
+type ContributionCalendarDay {
+    contributionCount: Int!
+    date: Date!
+}
+
+scalar Date
+
+schema {
+    query: Query
+}
