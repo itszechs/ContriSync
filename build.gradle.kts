@@ -1,6 +1,7 @@
 plugins {
     kotlin("jvm") version "1.9.22"
     id("com.apollographql.apollo3") version "3.8.2"
+    id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "zechs.contri.sync"
