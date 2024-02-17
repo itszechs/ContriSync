@@ -20,3 +20,9 @@ tasks.test {
 kotlin {
     jvmToolchain(17)
 }
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "zechs.contri.sync.MainKt"
+    }
+}
